@@ -43,7 +43,7 @@ https://veterinarytrucker.netlify.app/
 
 ## Contacto
 
-Si tienes alguna pregunta o comentario, no dudes en ponerte en contacto conmigo a través de [santiagohorton@gmail.com](mailto:tu-email@example.com).
+Si tienes alguna pregunta o comentario, no dudes en ponerte en contacto conmigo a través de [santiagohorton@gmail.com].
 
 ¡Gracias por explorar Veterinary Patient Tracker!
 ```
