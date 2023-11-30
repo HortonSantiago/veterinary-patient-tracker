@@ -11,7 +11,7 @@ const ListadoPacientes = ({ pacientes, setPaciente, eliminarPaciente }) => {
   // }, [pacientes]);
 
   return (
-    <div className="md:w-1/2 lg:w-3/5">
+    <div className="md:w-1/2 lg:w-3/5 mt-5">
       {pacientes && pacientes.length ? (
         <>
           <h2 className="font-black text-3xl text-center">
