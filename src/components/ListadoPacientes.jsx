@@ -11,9 +11,9 @@ const ListadoPacientes = ({ pacientes, setPaciente, eliminarPaciente }) => {
   // }, [pacientes]);
 
   return (
-    <div className="md:w-1/2 lg:w-3/5 mt-5">
+    <div className="md:w-1/2 lg:w-3/5 md:h-screen overflow-y-scroll">
       {pacientes && pacientes.length ? (
-        <>
+        <div className="xs:mb-10">
           <h2 className="font-black text-3xl text-center">
             Listado de Pacientes
           </h2>
@@ -31,7 +31,7 @@ const ListadoPacientes = ({ pacientes, setPaciente, eliminarPaciente }) => {
               />
             ))}
           </div>
-        </>
+        </div>
       ) : (
         <>
           <h2 className="font-black text-3xl text-center">No hay pacientes</h2>
