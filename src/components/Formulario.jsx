@@ -93,12 +93,12 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
         <div className="mb-5">
           <label
             htmlFor="nombreMascota"
-            className="block text-gray-700 uppercase"
+            className="block text-gray-700 uppercase font-bold"
           >
             Nombre Mascota
           </label>
           <input
-            className="border-2 w-full p-2 mt-2 placeholder-red-400 rounded-md"
+            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
             type="text"
             id="nombreMascota"
             name="nombreMascota"
@@ -111,12 +111,12 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
         <div className="mb-5">
           <label
             htmlFor="nombrePropietario"
-            className="block text-gray-700 uppercase"
+            className="block text-gray-700 uppercase font-bold"
           >
             Nombre del Propietario
           </label>
           <input
-            className="border-2 w-full p-2 mt-2 placeholder-red-400 rounded-md"
+            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
             type="text"
             id="nombrePropietario"
             name="nombrePropietario"
@@ -127,11 +127,14 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
         </div>
 
         <div className="mb-5">
-          <label htmlFor="email" className="block text-gray-700 uppercase">
+          <label
+            htmlFor="email"
+            className="block text-gray-700 uppercase font-bold"
+          >
             Email
           </label>
           <input
-            className="border-2 w-full p-2 mt-2 placeholder-red-400 rounded-md"
+            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
             type="email"
             id="email"
             name="email"
@@ -142,11 +145,14 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
         </div>
 
         <div className="mb-5">
-          <label htmlFor="alta" className="block text-gray-700 uppercase">
+          <label
+            htmlFor="alta"
+            className="block text-gray-700 uppercase font-bold"
+          >
             Alta
           </label>
           <input
-            className="border-2 w-full p-2 mt-2 placeholder-red-400 rounded-md"
+            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
             type="date"
             id="alta"
             name="alta"
@@ -156,11 +162,14 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
         </div>
 
         <div className="mb-5">
-          <label htmlFor="sintomas" className="block text-gray-700 uppercase">
+          <label
+            htmlFor="sintomas"
+            className="block text-gray-700 uppercase font-bold"
+          >
             Síntomas
           </label>
           <textarea
-            className="border-2 w-full p-2 mt-2 placeholder-red-400 rounded-md"
+            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
             name="sintomas"
             id="sintomas"
             cols="30"
@@ -172,7 +181,7 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
 
           <input
             type="submit"
-            className="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-all"
+            className="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-colors"
             value={paciente.id ? "Editar paciente" : " Agregar paciente"}
           />
         </div>
