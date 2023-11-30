@@ -37,9 +37,9 @@ npx tailwindcss init -p
 3. Ejecuta la aplicación: `npm run dev` o `yarn dev`
 4. Abre tu navegador en `http://localhost:3000`
 
-## ¿Cómo Contribuir?
+## Link del DEPLOY
 
-¡Gracias por tu interés en contribuir! Si tienes sugerencias, problemas o mejoras, no dudes en abrir un problema o enviar una solicitud de extracción.
+https://veterinarytrucker.netlify.app/
 
 ## Contacto
 
