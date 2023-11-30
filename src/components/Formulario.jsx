@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import PropTypes from "prop-types"; // Import PropTypes
 import Error from "./Error";
 
-const Formulario = ({ pacientes, setPacientes }) => {
+const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
   const [nombre, setNombre] = useState("");
   const [propietario, setPropietario] = useState("");
   const [email, setEmail] = useState("");
@@ -10,12 +11,30 @@ const Formulario = ({ pacientes, setPacientes }) => {
 
   const [error, setError] = useState(false);
 
+  useEffect(() => {
+    // comprueba si un objeto tiene algo o si esta vacio o no
+    if (Object.keys(paciente).length > 0) {
+      setNombre(paciente.nombre);
+      setPropietario(paciente.propietario);
+      setEmail(paciente.email);
+      setFecha(paciente.fecha);
+      setSintomas(paciente.sintomas);
+    }
+  }, [paciente]);
+
+  const generarId = () => {
+    const random = Math.random().toString(36).substr(2);
+    const fecha = Date.now().toString(36);
+
+    return random + fecha;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // validaciones del formulario
     if ([nombre, propietario, email, fecha, sintomas].includes("")) {
-      console.log(" Hay al menos un campo vacio");
+      console.log(" Hay al menos un campo vacío");
       setError(true);
       return;
     }
@@ -29,22 +48,36 @@ const Formulario = ({ pacientes, setPacientes }) => {
       fecha,
       sintomas,
     };
+    if (paciente.id) {
+      // editando registro
+      objetoPaciente.id = paciente.id;
 
-    setPacientes([...pacientes, objetoPaciente]);
+      const pacientesActualizados = pacientes.map((pacienteState) =>
+        pacienteState.id === paciente.id ? objetoPaciente : pacienteState
+      );
+
+      setPacientes(pacientesActualizados);
+      setPaciente({});
+    } else {
+      // nuevo registro
+      objetoPaciente.id = generarId();
+      setPacientes([...pacientes, objetoPaciente]);
+    }
+
     // reiniciar el formulario
-
     setNombre("");
     setPropietario("");
     setEmail("");
     setFecha("");
     setSintomas("");
   };
+
   return (
     <div className="md:w-1/2 lg:w-2/5 mx-5">
       <h2 className="font-black text-3xl text-center">Seguimiento Pacientes</h2>
-      <p className=" text-lg mt-5 text-center">
+      <p className="text-lg mt-5 text-center">
         Añade Pacientes y{" "}
-        <span className="text-indigo-600 font-extrabold"> Administralos</span>
+        <span className="text-indigo-600 font-extrabold"> Adminístralos</span>
       </p>
 
       <form
@@ -140,12 +173,20 @@ const Formulario = ({ pacientes, setPacientes }) => {
           <input
             type="submit"
             className="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-all"
-            value="Agregar Paciente"
+            value={paciente.id ? "Editar paciente" : " Agregar paciente"}
           />
         </div>
       </form>
     </div>
   );
+};
+
+// Prop Types
+Formulario.propTypes = {
+  pacientes: PropTypes.array.isRequired,
+  setPacientes: PropTypes.func.isRequired,
+  paciente: PropTypes.object.isRequired,
+  setPaciente: PropTypes.func.isRequired,
 };
 
 export default Formulario;
